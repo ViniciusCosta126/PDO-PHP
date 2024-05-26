@@ -1,12 +1,11 @@
 <?php
 
-use Viniciusc6\Pdo\Domain\Model\Student;
+use Viniciusc6\Pdo\Infrastructure\Persistence\ConnectionCreate;
 
 require_once 'vendor/autoload.php';
 
 
-$dataBasePath = __DIR__ . '/db.sqlite';
-$pdo = new PDO('sqlite:' . $dataBasePath);
+$pdo = ConnectionCreate::createConnection();
 
 
 $preparedStatement = $pdo->prepare("DELETE FROM students WHERE id=?;");

@@ -1,15 +1,16 @@
 <?php
 
 use Viniciusc6\Pdo\Domain\Model\Student;
+use Viniciusc6\Pdo\Infrastructure\Persistence\ConnectionCreate;
 
 require_once 'vendor/autoload.php';
 
 
 $dataBasePath = __DIR__ . '/db.sqlite';
-$pdo = new PDO('sqlite:' . $dataBasePath);
+$pdo = ConnectionCreate::createConnection();
 
 
-$student = new Student(null, "Patrick Dias", new \DateTimeImmutable('1997-12-16'));
+$student = new Student(null, "Teste Dias", new \DateTimeImmutable('1997-12-16'));
 $sqlInsert = "INSERT INTO students (name, birth_date) VALUES(:name, :birth_date);";
 
 $statement = $pdo->prepare($sqlInsert);
