@@ -1,6 +1,6 @@
 <?php
 
-namespace Alura\Pdo\Domain\Model;
+namespace Viniciusc6\Pdo\Domain\Model;
 
 class Student
 {

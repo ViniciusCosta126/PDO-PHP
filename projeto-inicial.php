@@ -1,6 +1,6 @@
 <?php
 
-use Alura\Pdo\Domain\Model\Student;
+use Viniciusc6\Pdo\Domain\Model\Student;
 
 require_once 'vendor/autoload.php';
 
