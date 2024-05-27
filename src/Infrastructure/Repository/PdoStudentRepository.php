@@ -4,9 +4,9 @@ namespace Viniciusc6\Pdo\Infrastructure\Repository;
 
 use PDO;
 use Viniciusc6\Pdo\Domain\Model\Student;
-use Viniciusc6\Pdo\Domain\Repository\StudenteRepository;
+use Viniciusc6\Pdo\Domain\Repository\StudentRepository;
 
-class PdoStudentRepository implements StudenteRepository
+class PdoStudentRepository implements StudentRepository
 {
     private PDO $connection;
 
@@ -50,6 +50,11 @@ class PdoStudentRepository implements StudenteRepository
     {
         $sqlInsert = "INSERT INTO students (name, birth_date) VALUES(:name, :birth_date);";
         $stmt = $this->connection->prepare($sqlInsert);
+
+        if ($stmt === false) {
+            throw new \RuntimeException("Erro na query do banco");
+        }
+
         $stmt->bindValue(':name', $student->name());
         $stmt->bindValue(':birth_date', $student->birthDate()->format('Y-m-d'));
 

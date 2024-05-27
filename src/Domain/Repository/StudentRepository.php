@@ -4,7 +4,7 @@ namespace Viniciusc6\Pdo\Domain\Repository;
 
 use Viniciusc6\Pdo\Domain\Model\Student;
 
-interface StudenteRepository
+interface StudentRepository
 {
 
     public function allStudents(): array;

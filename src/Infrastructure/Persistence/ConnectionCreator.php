@@ -6,11 +6,11 @@ use PDO;
 
 require_once 'vendor/autoload.php';
 
-class ConnectionCreate
+class ConnectionCreator
 {
     public static function createConnection(): PDO
     {
-        $dataBasePath = __DIR__ . '/../../.../db.sqlite';
+        $dataBasePath = __DIR__ . '/../../../db.sqlite';
         return new PDO('sqlite:' . $dataBasePath);
     }
 }

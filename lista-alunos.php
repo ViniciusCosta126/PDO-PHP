@@ -1,11 +1,10 @@
 <?php
-
-use Viniciusc6\Pdo\Domain\Model\Student;
-use Viniciusc6\Pdo\Infrastructure\Persistence\ConnectionCreate;
-
 require_once 'vendor/autoload.php';
 
-$pdo = $pdo = ConnectionCreate::createConnection();
+use Viniciusc6\Pdo\Domain\Model\Student;
+use Viniciusc6\Pdo\Infrastructure\Persistence\ConnectionCreator;
+
+$pdo = ConnectionCreator::createConnection();
 
 $statement = $pdo->query('SELECT * FROM students');
 
@@ -20,3 +19,5 @@ foreach ($studentDataList as $studentData) {
         new \DateTimeImmutable($studentData['birth_date']),
     );
 }
+
+var_dump($studentList);

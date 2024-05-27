@@ -1,11 +1,11 @@
 <?php
 
-use Viniciusc6\Pdo\Infrastructure\Persistence\ConnectionCreate;
+use Viniciusc6\Pdo\Infrastructure\Persistence\ConnectionCreator;
 
 require_once 'vendor/autoload.php';
 
 
-$pdo = ConnectionCreate::createConnection();
+$pdo = ConnectionCreator::createConnection();
 
 
 $preparedStatement = $pdo->prepare("DELETE FROM students WHERE id=?;");
