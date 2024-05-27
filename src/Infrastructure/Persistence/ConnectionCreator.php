@@ -11,6 +11,8 @@ class ConnectionCreator
     public static function createConnection(): PDO
     {
         $dataBasePath = __DIR__ . '/../../../db.sqlite';
-        return new PDO('sqlite:' . $dataBasePath);
+        $connection = new PDO('sqlite:' . $dataBasePath);
+        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $connection;
     }
 }
